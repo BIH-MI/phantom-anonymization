@@ -1,0 +1,14 @@
+name: ED-t-Closeness-0.5-local-0.4gs
+anonymizationAlgorithm: BEST_EFFORT_GENETIC
+heuristicSearchStepLimit: 1500
+suppressionLimit: 1
+localGeneralization: true
+localGeneralizationIterations: 100
+qualityModel:
+    qualityModelType: LOSS_METRIC
+    gsFactor: 0.4
+privacyModelList:
+  - type: EqualDistanceTCloseness
+    t: 0.5
+    attributes:
+      - RACE

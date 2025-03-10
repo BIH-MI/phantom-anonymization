@@ -1,0 +1,12 @@
+name: AvgReidentificationRisk-0.05-local
+anonymizationAlgorithm: BEST_EFFORT_BOTTOM_UP
+heuristicSearchTimeLimit: 10000
+suppressionLimit: 1
+localGeneralization: true
+localGeneralizationIterations: 10
+qualityModel:
+    qualityModelType: LOSS_METRIC
+    gsFactor: 0
+privacyModelList:
+  - type: AverageReidentificationRisk
+    averageRisk: 0.05

@@ -1,0 +1,9 @@
+name: EqualDistance-t-Closeness-0.2
+anonymizationAlgorithm: BEST_EFFORT_BOTTOM_UP
+heuristicSearchTimeLimit: 30000
+suppressionLimit: 1
+privacyModelList:
+  - type: EqualDistanceTCloseness
+    t: 0.2
+    attributes:
+      - RACE

@@ -1,0 +1,2 @@
+#!/bin/bash
+java -jar -Xmx1024m target/privacy-mgmt-membership-anonymization-1.0-SNAPSHOT.jar --riskAssessment --riskAssessmentConfig example/riskAssessmentConfig/riskAssessment_example.yml --dataConfig example/dataConfig/texas_allQI.yml --anonymizationConfig example/anonymizationConfig/k-Anonymity-2_global.yml --name cliExample

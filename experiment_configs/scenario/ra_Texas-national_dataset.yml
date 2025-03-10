@@ -1,0 +1,19 @@
+name: National-dataset
+featureTypes:
+  - HISTOGRAM
+classifierType: RF
+targetCount: 20
+targetType: IMPORT
+targetImportFile: experiment_configs/Targets_Texas_10Outlier_10Average.txt
+runCount: 2
+runTrainingCount: 30
+runTestCount: 30
+sizeSampleTraining: 3802
+sizeSampleTest: 3802
+sizeBackgroundFraction: 0.8
+sizeCohortFraction: 0.8
+overlap: 0.8
+threadCount: 64
+useCheckpointData: False
+pathToCheckpointData: results/checkpoint
+pathToStatisticsConfig: experiment_configs/statistics_texas_predict_riskMortality.yml

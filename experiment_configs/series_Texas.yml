@@ -1,0 +1,49 @@
+name: Series-texas
+combinationConfig:
+  # Global Generalization
+  - pathsToAnonymizationConfig:
+      - experiment_configs/anon_global-1.5k-Steps/anon_IDENTITY.yml
+      - experiment_configs/anon_global-1.5k-Steps/anon_k-Anonymity-2.yml
+      - experiment_configs/anon_global-1.5k-Steps/anon_k-Anonymity-5.yml
+      - experiment_configs/anon_global-1.5k-Steps/anon_AvgReidentificationRisk-0.5.yml
+      - experiment_configs/anon_global-1.5k-Steps/anon_AvgReidentificationRisk-0.2.yml
+      - experiment_configs/anon_global-1.5k-Steps/anon_AvgReidentificationRisk-0.05.yml
+    pathsToDataConfig:
+      - experiment_configs/data/data_texas_RM_insensitive_generalization.yml
+    pathsToRiskAssessmentConfig:
+      - experiment_configs/scenario/ra_Texas-national_dataset.yml
+      - experiment_configs/scenario/ra_Texas-study_dataset.yml
+  # Local Generalization, Cell-Suppresssion, Micro-Aggregation
+  - pathsToAnonymizationConfig:
+      - experiment_configs/anon_local-1.5k-Steps/anon_k-Anonymity-2.yml
+      - experiment_configs/anon_local-1.5k-Steps/anon_k-Anonymity-5.yml
+      - experiment_configs/anon_local-1.5k-Steps/anon_AvgReidentificationRisk-0.5.yml
+      - experiment_configs/anon_local-1.5k-Steps/anon_AvgReidentificationRisk-0.2.yml
+      - experiment_configs/anon_local-1.5k-Steps/anon_AvgReidentificationRisk-0.05.yml
+    pathsToDataConfig:
+      - experiment_configs/data/data_texas_RM_insensitive_generalization.yml
+      - experiment_configs/data/data_texas_RM_insensitive_cell_suppression.yml
+      - experiment_configs/data/data_texas_RM_insensitive_micro_aggregation.yml
+    pathsToRiskAssessmentConfig:
+      - experiment_configs/scenario/ra_Texas-national_dataset.yml
+      - experiment_configs/scenario/ra_Texas-study_dataset.yml
+  # Global Generalization
+  - pathsToAnonymizationConfig:
+      - experiment_configs/anon_global-1.5k-Steps/anon_EqualDistance-t-Closeness-0.5.yml
+      - experiment_configs/anon_global-1.5k-Steps/anon_Distinct-l-Diversity-2.yml
+    pathsToDataConfig:
+      - experiment_configs/data/data_texas_raceSensitive_RM_insensitive_generalization.yml
+    pathsToRiskAssessmentConfig:
+      - experiment_configs/scenario/ra_Texas-national_dataset.yml
+      - experiment_configs/scenario/ra_Texas-study_dataset.yml
+  # Local Generalization, Cell-Suppresssion, Micro-Aggregation
+  - pathsToAnonymizationConfig:
+      - experiment_configs/anon_local-1.5k-Steps/anon_ED-t-Closeness-0.5_0.4gs.yml
+      - experiment_configs/anon_local-1.5k-Steps/anon_Distinct-l-Diversity-2.yml
+    pathsToDataConfig:
+      - experiment_configs/data/data_texas_raceSensitive_RM_insensitive_generalization.yml
+      - experiment_configs/data/data_texas_raceSensitive_RM_insensitive_cell_suppression.yml
+      - experiment_configs/data/data_texas_raceSensitive_RM_insensitive_micro_aggregation.yml
+    pathsToRiskAssessmentConfig:
+      - experiment_configs/scenario/ra_Texas-national_dataset.yml
+      - experiment_configs/scenario/ra_Texas-study_dataset.yml

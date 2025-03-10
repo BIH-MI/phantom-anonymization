@@ -1,0 +1,18 @@
+name: ExampleRAConfig
+featureTypes:
+  - HISTOGRAM
+classifierType: RF 
+targetCount: 20
+targetType: IMPORT
+targetImportFile: example/data/Targets_Texas_10Outlier_10Average.txt
+runCount: 1
+runTrainingCount: 1
+runTestCount: 1
+sizeSampleTraining: 1000
+sizeSampleTest: 2000
+sizeBackground: 10000
+sizeCohort: 20000
+overlap: 1
+threadCount: 1
+useCheckpointData: False
+pathToCheckpointData: results/checkpoint

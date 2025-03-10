@@ -1,0 +1,14 @@
+name: Distinct-l-Diversity-2-local
+anonymizationAlgorithm: BEST_EFFORT_GENETIC
+heuristicSearchStepLimit: 1500
+suppressionLimit: 1
+localGeneralization: true
+localGeneralizationIterations: 100
+qualityModel:
+    qualityModelType: LOSS_METRIC
+    gsFactor: 0
+privacyModelList:
+  - type: DistinctLDiversity
+    l: 2
+    attributes:
+      - RACE

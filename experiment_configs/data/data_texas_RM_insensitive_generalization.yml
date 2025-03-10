@@ -1,0 +1,82 @@
+dataSetName: texas-RM-insens-generalization
+dataCsvFile: data/texas/texas_decoded.csv
+attributeConfigs:
+  - name: DISCHARGE
+    type: QUASI_IDENTIFYING_ATTRIBUTE
+    dataType: categorical
+    pathToHierarchy: data/texas/hierarchies_categorical/texas_hierarchy_DISCHARGE.csv
+  - name: TYPE_OF_ADMISSION
+    type: QUASI_IDENTIFYING_ATTRIBUTE
+    dataType: categorical
+    pathToHierarchy: data/texas/hierarchies_categorical/texas_hierarchy_TYPE_OF_ADMISSION.csv
+  - name: PAT_STATE
+    type: QUASI_IDENTIFYING_ATTRIBUTE
+    dataType: categorical
+    pathToHierarchy: data/texas/hierarchies_categorical/texas_hierarchy_PAT_STATE.csv
+  - name: PAT_STATUS
+    type: QUASI_IDENTIFYING_ATTRIBUTE
+    dataType: categorical
+    pathToHierarchy: data/texas/hierarchies_categorical/texas_hierarchy_PAT_STATUS.csv
+  - name: SEX_CODE
+    type: QUASI_IDENTIFYING_ATTRIBUTE
+    dataType: categorical
+    pathToHierarchy: data/texas/hierarchies_categorical/texas_hierarchy_SEX_CODE.csv
+  - name: RACE
+    type: QUASI_IDENTIFYING_ATTRIBUTE
+    dataType: categorical
+    pathToHierarchy: data/texas/hierarchies_categorical/texas_hierarchy_RACE.csv
+  - name: ETHNICITY
+    type: QUASI_IDENTIFYING_ATTRIBUTE
+    dataType: categorical
+    pathToHierarchy: data/texas/hierarchies_categorical/texas_hierarchy_ETHNICITY.csv
+  - name: ADMIT_WEEKDAY
+    type: QUASI_IDENTIFYING_ATTRIBUTE
+    dataType: categorical
+    pathToHierarchy: data/texas/hierarchies_categorical/texas_hierarchy_ADMIT_WEEKDAY.csv
+  - name: PAT_AGE
+    type: QUASI_IDENTIFYING_ATTRIBUTE
+    dataType: categorical
+    pathToHierarchy: data/texas/hierarchies_categorical/texas_hierarchy_PAT_AGE.csv
+  - name: RISK_MORTALITY
+    type: INSENSITIVE_ATTRIBUTE
+    dataType: categorical
+    pathToHierarchy: data/texas/hierarchies_categorical/texas_hierarchy_RISK_MORTALITY.csv
+  - name: ILLNESS_SEVERITY
+    type: QUASI_IDENTIFYING_ATTRIBUTE
+    dataType: categorical
+    pathToHierarchy: data/texas/hierarchies_categorical/texas_hierarchy_ILLNESS_SEVERITY.csv
+  - name: LENGTH_OF_STAY
+    type: QUASI_IDENTIFYING_ATTRIBUTE
+    dataType: continuous
+    useMicroAggregation: false
+    pathToHierarchy: data/texas/hierarchies_numeric/texas_hierarchy_LENGTH_OF_STAY.csv
+  - name: TOTAL_CHARGES
+    type: QUASI_IDENTIFYING_ATTRIBUTE
+    dataType: continuous
+    useMicroAggregation: false
+    pathToHierarchy: data/texas/hierarchies_numeric/texas_hierarchy_TOTAL_CHARGES.csv
+  - name: TOTAL_NON_COV_CHARGES
+    type: QUASI_IDENTIFYING_ATTRIBUTE
+    dataType: continuous
+    useMicroAggregation: false
+    pathToHierarchy: data/texas/hierarchies_numeric/texas_hierarchy_TOTAL_NON_COV_CHARGES.csv
+  - name: TOTAL_CHARGES_ACCOMM
+    type: QUASI_IDENTIFYING_ATTRIBUTE
+    dataType: continuous
+    useMicroAggregation: false
+    pathToHierarchy: data/texas/hierarchies_numeric/texas_hierarchy_TOTAL_CHARGES_ACCOMM.csv
+  - name: TOTAL_NON_COV_CHARGES_ACCOMM
+    type: QUASI_IDENTIFYING_ATTRIBUTE
+    dataType: continuous
+    useMicroAggregation: false
+    pathToHierarchy: data/texas/hierarchies_numeric/texas_hierarchy_TOTAL_NON_COV_CHARGES_ACCOMM.csv
+  - name: TOTAL_CHARGES_ANCIL
+    type: QUASI_IDENTIFYING_ATTRIBUTE
+    dataType: continuous
+    useMicroAggregation: false
+    pathToHierarchy: data/texas/hierarchies_numeric/texas_hierarchy_TOTAL_CHARGES_ANCIL.csv
+  - name: TOTAL_NON_COV_CHARGES_ANCIL
+    type: QUASI_IDENTIFYING_ATTRIBUTE
+    dataType: continuous
+    useMicroAggregation: false
+    pathToHierarchy: data/texas/hierarchies_numeric/texas_hierarchy_TOTAL_NON_COV_CHARGES_ANCIL.csv

@@ -1,0 +1,19 @@
+name: Study-dataset
+featureTypes:
+  - HISTOGRAM
+classifierType: RF
+targetCount: 20
+targetType: IMPORT
+targetImportFile: experiment_configs/Targets_Texas_10Outlier_10Average.txt
+runCount: 14
+runTrainingCount: 30
+runTestCount: 30
+sizeSampleTraining: 951
+sizeSampleTest: 951
+sizeBackgroundFraction: 0.2
+sizeCohortFraction: 0.2
+overlap: 0.2
+threadCount: 64
+useCheckpointData: False
+pathToCheckpointData: results/checkpoint
+pathToStatisticsConfig: experiment_configs/statistics_texas_predict_riskMortality.yml

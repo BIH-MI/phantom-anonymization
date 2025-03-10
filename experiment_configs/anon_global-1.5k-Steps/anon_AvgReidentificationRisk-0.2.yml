@@ -1,0 +1,7 @@
+name: AvgReidentificationRisk-0.2
+anonymizationAlgorithm: BEST_EFFORT_GENETIC
+heuristicSearchStepLimit: 1500
+suppressionLimit: 1
+privacyModelList:
+  - type: AverageReidentificationRisk
+    averageRisk: 0.2

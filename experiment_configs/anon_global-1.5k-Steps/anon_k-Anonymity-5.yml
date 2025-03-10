@@ -1,0 +1,7 @@
+name: k-Anonymity-5
+anonymizationAlgorithm: BEST_EFFORT_GENETIC
+heuristicSearchStepLimit: 1500
+suppressionLimit: 1
+privacyModelList:
+  - type: k-Anonymity
+    k: 5

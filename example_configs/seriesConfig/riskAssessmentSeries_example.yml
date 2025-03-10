@@ -1,0 +1,16 @@
+name: example_configsSeries
+combinationConfig:
+  - pathsToAnonymizationConfig:
+      - example_configs/anonymizationConfig/IDENTITY.yml
+      - example_configs/anonymizationConfig/k-Anonymity-2_global.yml
+      - example_configs/anonymizationConfig/AvgReidentificationRisk-0.05_global.yml
+    pathsToDataConfig:
+      - example_configs/dataConfig/texas_allQI.yml
+    pathsToRiskAssessmentConfig:
+      - example_configs/riskAssessmentConfig/riskAssessment_example_configs.yml
+  - pathsToAnonymizationConfig:
+      - example_configs/anonymizationConfigs/EqualDistance-t-Closeness-0.2_global.yml
+    pathsToDataConfig:
+      - example_configs/data_config_texas_RACE_sensitive.yml
+    pathsToRiskAssessmentConfig:
+      - example_configs/riskAssessmentConfig/riskAssessment_example_configs.yml

@@ -1,0 +1,12 @@
+name: AvgReidentificationRisk-0.2-local
+anonymizationAlgorithm: BEST_EFFORT_GENETIC
+heuristicSearchStepLimit: 1500
+suppressionLimit: 1
+localGeneralization: true
+localGeneralizationIterations: 100
+qualityModel:
+    qualityModelType: LOSS_METRIC
+    gsFactor: 0
+privacyModelList:
+  - type: AverageReidentificationRisk
+    averageRisk: 0.2

@@ -1,0 +1,9 @@
+name: Distinct-l-Diversity-2
+anonymizationAlgorithm: BEST_EFFORT_GENETIC
+heuristicSearchStepLimit: 1500
+suppressionLimit: 1
+privacyModelList:
+  - type: DistinctLDiversity
+    l: 2
+    attributes:
+      - RACE

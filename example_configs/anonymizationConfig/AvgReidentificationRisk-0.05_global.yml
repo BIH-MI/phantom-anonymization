@@ -1,0 +1,7 @@
+name: AvgReidentificationRisk-0.05
+anonymizationAlgorithm: BEST_EFFORT_BOTTOM_UP
+heuristicSearchTimeLimit: 30000
+suppressionLimit: 1
+privacyModelList:
+  - type: AverageReidentificationRisk
+    averageRisk: 0.05

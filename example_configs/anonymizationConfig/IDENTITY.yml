@@ -1,0 +1,6 @@
+name: IDENTITY # when changing configuration make sure this still returns IDENTITY
+anonymizationAlgorithm: BEST_EFFORT_BOTTOM_UP
+heuristicSearchStepLimit: 1
+privacyModelList:
+  - type: k-Anonymity
+    k: 1
