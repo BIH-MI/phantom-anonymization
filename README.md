@@ -46,7 +46,7 @@ java -jar [file].jar
 ```
 Examples of how to use the cli are provded as bash scripts.
 
-An example is provided in the `example_configs` folder. The result files are saved into the results/ folder.
+The result files are saved into the results/ folder.
 
 ### Configuration files
 #### Specification of risk assessment configuration
@@ -85,9 +85,45 @@ An example is provided in the `example_configs` folder. The result files are sav
 |   ↳ `pathsToRiskAssessmentConfig` | `list` of `string` |                  | Paths to the risk assessment configurations.|
 
 #### Specification of anonymization configuration
-todo
+
+| Parameter                        | Type                  | Default                          | Values                                                                 | Description                                                   |
+|----------------------------------|-----------------------|----------------------------------|------------------------------------------------------------------------|---------------------------------------------------------------|
+| `name`                           | `string`              |                        |                                                                        | Name of the anonymization configuration.                      |
+| `privacyModelList`               | `list` of `PrivacyModel` |                                | `k-Anonymity`, `DistinctLDiversity`, `EntropyLDiversity`, `HierarchicalDistanceTCloseness`, `EqualDistanceTCloseness`, `DDisclosurePrivacy`, `EnhancedBLikeness`, `EDDifferentialPrivacy`, `AverageReidentificationRisk`, `PopulationUniqueness` | List of privacy models used for anonymization. For parametrization of each model please see example configs.              |
+| `suppressionLimit`               | `double`              | `1.0`                            |                                                                        | Suppression limit.                                            |
+| `anonymizationAlgorithm`         | `string`              | `OPTIMAL`                        | `OPTIMAL`, `HEURISTIC`, `EXACT`                                       | Algorithm used for anonymization.                            |
+| `heuristicSearchTimeLimit`       | `integer`             | `Integer.MAX_VALUE`              |                                                                        | Time limit for heuristic search (if applicable).             |
+| `heuristicSearchStepLimit`       | `integer`             | `Integer.MAX_VALUE`              |                                                                        | Step limit for heuristic search (if applicable).             |
+| `differentialPrivacySearchBudget` | `double`             | `0.1`                            |                                                                        | Search budget for differential privacy algorithms.           |
+| `qualityModel`                   | `QualityModelConfig`  |                                    |                                                                        |       |
+| ↳ `qualityModelType`         | `enum`            | `LOSS_METRIC`  |   `LOSS_METRIC`                                           | QualityModel chosen             |
+| ↳ `gsFactor`         | `double`            | `0.5`  |                                          | Default is 0.5. A factor of 0 will favor suppression, and a factor of 1 will favor generalization.           |
+| `localGeneralization`            | `boolean`             | `false`                           | `true`, `false`                                                       | Whether local generalization is used.                        |
+| `localGeneralizationIterations`  | `integer`             | `100`                            |                                                                        | Number of iterations performed for local generalization.     |
+
 #### Specification of dataset configuration
-todo
+
+| Parameter             | Type              | Default       | Values                                       | Description                                              |
+|-----------------------|------------------|---------------|----------------------------------------------|----------------------------------------------------------|
+| `dataSetName`        | `string`          | "Unnamed"      |                                              | Name of the dataset configuration.                       |
+| `dataCsvFile`        | `string`          |               |                                              | Path to the CSV file containing the dataset.             |
+| `attributeConfigs`   | `list` of `attributeConfigs` |               |                                              | List of attribute configurations.                        |
+| ↳ `name`               | `string`            |               |                                              | Name of the attribute.                                   |
+| ↳ `dataType`           | `string`            |               | `categorical`, `continuous`      | Data type of the attribute.                             |
+| ↳ `type`               | `string`            |               | `IDENTIFIER`, `QUASI_IDENTIFIER`, `SENSITIVE`, `INSENSITIVE` | Type of the attribute.                                  |
+| ↳ `dateFormat`         | `string`            | `dd.MM.yyyy`  |                                              | Format for date attributes, if applicable.             |
+| ↳ `possibleEntries`    | `list` of `string`  |               |                                              | List of possible values for categorical attributes.     |
+| ↳ `include`            | `boolean`           | `true`        | `true`, `false`                               | Whether to include this attribute in processing.        |
+| ↳ `min`               | `object`            |               |                                              | Minimum value of the attribute.                         |
+| ↳ `max`               | `object`            |               |                                              | Maximum value of the attribute.                         |
+| ↳ `minLevelToUse`      | `integer`           |               |                                              | Minimum level from hierarchy to use.                    |
+| ↳ `maxLevelToUse`      | `integer`           |               |                                              | Maximum level from hierarchy to use.                    |
+| ↳ `pathToHierarchy`    | `string`            |               |                                              | Path to a file containing the hierarchy.                |
+| ↳ `useMicroAggregation`| `boolean`           | `false`       | `true`, `false`                               | Whether to use microaggregation for this attribute.     |
+| ↳ `microAggregationFunction` | `string`      | `ARITHMETIC_MEAN` | `ARITHMETIC_MEAN`, `GEOMETRIC_MEAN`, `MEDIAN` | Function used for microaggregation.                   |
+| ↳ `performClustering`  | `boolean`           | `true`        | `true`, `false`                               | Whether clustering is performed in microaggregation.   |
+| ↳ `ignoreMissingData`  | `boolean`           | `true`        | `true`, `false`                               | Whether missing data should be ignored.                |
+
 ## Example configs
 
 The example folder contains examples for each of the configs, i.e. anonymizationConfig(s), dataConfig(s), riskAssessmentConfig(s), seriesConfig(s)
