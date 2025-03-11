@@ -14,7 +14,7 @@
 
 package org.bihmi.phantomanonymization.features;
 
-import org.bihmi.privacy.mgmt.anonymization.config.AttributeConfig;
+import org.bihmi.anonymization.config.AttributeConfig;
 import org.deidentifier.arx.Data;
 
 import java.util.*;

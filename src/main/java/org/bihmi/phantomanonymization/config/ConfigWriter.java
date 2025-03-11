@@ -23,7 +23,7 @@ import java.io.*;
  * Class to write yaml config files needed for anonymization or performing risk assessments.
  */
 @Getter
-public class ConfigWriter extends org.bihmi.privacy.mgmt.anonymization.config.ConfigWriter {
+public class ConfigWriter extends org.bihmi.anonymization.config.ConfigWriter {
 
     /**
      * Write configuration

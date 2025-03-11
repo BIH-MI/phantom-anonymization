@@ -14,8 +14,8 @@
 
 package org.bihmi.phantomanonymization.config;
 
-import org.bihmi.privacy.mgmt.anonymization.config.AnonymizationConfig;
-import org.bihmi.privacy.mgmt.anonymization.config.DataConfig;
+import org.bihmi.anonymization.config.AnonymizationConfig;
+import org.bihmi.anonymization.config.DataConfig;
 
 import lombok.AllArgsConstructor;
 import lombok.Getter;

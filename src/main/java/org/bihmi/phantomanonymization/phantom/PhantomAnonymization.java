@@ -16,11 +16,11 @@ package org.bihmi.phantomanonymization.phantom;
 
 import lombok.extern.slf4j.Slf4j;
 
+import org.bihmi.anonymization.config.AnonymizationConfig;
+import org.bihmi.anonymization.config.DataConfig;
 import org.bihmi.phantomanonymization.config.RiskAssessmentConfig;
 import org.bihmi.phantomanonymization.config.StatisticsConfig;
 import org.bihmi.phantomanonymization.features.FeatureType;
-import org.bihmi.privacy.mgmt.anonymization.config.AnonymizationConfig;
-import org.bihmi.privacy.mgmt.anonymization.config.DataConfig;
 
 import java.io.BufferedWriter;
 import java.io.File;

@@ -23,7 +23,7 @@ import java.nio.charset.Charset;
 /**
  * Loads data
  */
-public class DataLoader extends org.bihmi.privacy.mgmt.anonymization.data.DataLoader {
+public class DataLoader extends org.bihmi.anonymization.data.DataLoader {
 
     /**
      * Loads a dataset given a reference definition

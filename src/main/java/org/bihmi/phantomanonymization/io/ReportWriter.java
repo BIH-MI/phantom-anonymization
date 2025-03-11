@@ -24,13 +24,13 @@ import java.util.Map;
 import java.util.Set;
 import java.util.concurrent.atomic.AtomicInteger;
 
+import org.bihmi.anonymization.config.AnonymizationConfig;
+import org.bihmi.anonymization.config.DataConfig;
+import org.bihmi.anonymization.data.DataLoader;
 import org.bihmi.phantomanonymization.config.BaseConfig;
 import org.bihmi.phantomanonymization.config.ConfigWriter;
 import org.bihmi.phantomanonymization.config.RiskAssessmentConfig;
 import org.bihmi.phantomanonymization.target.TargetSelection;
-import org.bihmi.privacy.mgmt.anonymization.config.AnonymizationConfig;
-import org.bihmi.privacy.mgmt.anonymization.config.DataConfig;
-import org.bihmi.privacy.mgmt.anonymization.data.DataLoader;
 import org.deidentifier.arx.Data;
 
 /**

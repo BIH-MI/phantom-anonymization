@@ -5,11 +5,11 @@ Phantom Anonymization is a framework for quantifying residual membership inferen
 ### Maven
 [Maven](https://maven.apache.org/install.html) needs to be installed!
 
-Since the pipeline used for the anonymization is currently included as jar file in the project, it needs to be manually install into the local Maven repository:
+Since ARX is currently included as jar file in the project, it needs to be manually install into the local Maven repository:
 
 On Windows run following command in cmd.exe in the root folder of this project:
 
-`mvn install:install-file -Dfile=lib/privacy-mgmt-anonymization-1.0-SNAPSHOT.jar -DgroupId=BIHMI -DartifactId=privacy-mgmt-anonymization -Dversion=1.0-SNAPSHOT -Dpackaging=jar
+`mvn install:install-file -Dfile=lib/libarx-3.9.1.jar -DgroupId=org.deidentifier.arx -DartifactId=arx -Dversion=3.9.1 -Dpackaging=jar
 `
 ### Lombok
 We use lombok https://projectlombok.org/
@@ -23,7 +23,7 @@ https://projectlombok.org/setup/intellij
 ### Building a Jar file
 Navigate to the folder and run following commands:
 1. If not already happened during Maven setup, run:
-`mvn install:install-file -Dfile=lib/privacy-mgmt-anonymization-1.0-SNAPSHOT.jar -DgroupId=BIHMI -DartifactId=privacy-mgmt-anonymization -Dversion=1.0-SNAPSHOT -Dpackaging=jar`
+`mvn install:install-file -Dfile=lib/libarx-3.9.1.jar -DgroupId=org.deidentifier.arx -DartifactId=arx -Dversion=3.9.1 -Dpackaging=jar`
 2. Run: `mvn install -DskipTests` within the project folder
 3. Jar can now be found at `target/phantomanonymization-1.0-SNAPSHOT.jar`
 
@@ -44,6 +44,7 @@ java -jar [file].jar
                              following options must be present as well:
                              dataConfig
 ```
+Examples of how to use the cli are provded as bash scripts.
 
 An example is provided in the `example_configs` folder. The result files are saved into the results/ folder.
 
@@ -89,10 +90,7 @@ todo
 todo
 ## Example configs
 
-The example folder contains:
-- examples for each of the configs, i.e. anonymizationConfig(s), dataConfig(s), riskAssessmentConfig(s), seriesConfig(s)
-- the texas discharge dataset and the corresponding hierarchies that are required for running the examples
-- examples of how to use the cli for execuritng targetSelection, riskAssessment, and riskAssessmentSeries 
+The example folder contains examples for each of the configs, i.e. anonymizationConfig(s), dataConfig(s), riskAssessmentConfig(s), seriesConfig(s)
 
 ## Experiment configs
 

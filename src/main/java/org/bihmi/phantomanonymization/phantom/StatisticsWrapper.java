@@ -8,9 +8,9 @@ import java.util.Locale;
 import java.util.Properties;
 import java.util.HashSet;
 
+import org.bihmi.anonymization.config.AttributeConfig;
+import org.bihmi.anonymization.config.DataConfig;
 import org.bihmi.phantomanonymization.config.StatisticsConfig;
-import org.bihmi.privacy.mgmt.anonymization.config.AttributeConfig;
-import org.bihmi.privacy.mgmt.anonymization.config.DataConfig;
 import org.deidentifier.arx.ARXClassificationConfiguration;
 import org.deidentifier.arx.Data;
 import org.deidentifier.arx.DataHandle;

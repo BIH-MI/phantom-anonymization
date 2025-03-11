@@ -24,7 +24,7 @@ import java.nio.file.Paths;
  * Class to read yaml config files needed for anonymization or performing risk assessment
  */
 @Slf4j
-public class ConfigReader extends org.bihmi.privacy.mgmt.anonymization.config.ConfigReader {
+public class ConfigReader extends org.bihmi.anonymization.config.ConfigReader {
 
     /**
      * Read experiment configuration

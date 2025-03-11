@@ -15,8 +15,8 @@
 package org.bihmi.phantomanonymization.phantom;
 
 import org.apache.commons.math3.util.Pair;
+import org.bihmi.anonymization.config.AttributeConfig;
 import org.bihmi.phantomanonymization.features.*;
-import org.bihmi.privacy.mgmt.anonymization.config.AttributeConfig;
 import org.deidentifier.arx.DataHandle;
 import org.deidentifier.arx.DataType;
 import smile.classification.DecisionTree.SplitRule;

@@ -4,7 +4,7 @@ featureTypes:
 classifierType: RF 
 targetCount: 20
 targetType: IMPORT
-targetImportFile: example/data/Targets_Texas_10Outlier_10Average.txt
+targetImportFile: example_configs/riskAssessmentConfig/Targets_Texas_10Outlier_10Average.txt
 runCount: 1
 runTrainingCount: 1
 runTestCount: 1

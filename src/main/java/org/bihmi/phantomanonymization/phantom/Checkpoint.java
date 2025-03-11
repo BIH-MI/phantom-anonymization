@@ -32,11 +32,11 @@ import java.io.FileOutputStream;
 import java.io.FileInputStream;
 import java.util.Properties;
 
+import org.bihmi.anonymization.config.AnonymizationConfig;
+import org.bihmi.anonymization.config.DataConfig;
 import org.bihmi.phantomanonymization.config.ConfigReader;
 import org.bihmi.phantomanonymization.config.ConfigWriter;
 import org.bihmi.phantomanonymization.config.RiskAssessmentConfig;
-import org.bihmi.privacy.mgmt.anonymization.config.AnonymizationConfig;
-import org.bihmi.privacy.mgmt.anonymization.config.DataConfig;
 import org.deidentifier.arx.Data;
 import org.deidentifier.arx.DataHandle;
 

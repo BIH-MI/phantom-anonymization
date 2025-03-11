@@ -16,7 +16,7 @@ package org.bihmi.phantomanonymization.features;
 
 import org.apache.commons.math3.linear.OpenMapRealMatrix;
 import org.apache.commons.math3.stat.correlation.PearsonsCorrelation;
-import org.bihmi.privacy.mgmt.anonymization.config.AttributeConfig;
+import org.bihmi.anonymization.config.AttributeConfig;
 import org.deidentifier.arx.DataHandle;
 import org.deidentifier.arx.DataType;
 

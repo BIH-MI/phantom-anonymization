@@ -3,6 +3,6 @@ combinationConfig:
   - pathsToAnonymizationConfig:
       - example_configs/anonymizationConfig/IDENTITY.yml
     pathsToDataConfig:
-      - example_configs/dataConfig/texas_allQI.yml
+      - example_configs/dataConfig/data_texas_RM_insensitive_generalization.yml
     pathsToRiskAssessmentConfig:
-      - example_configs/riskAssessmentConfig/riskAssessment_example_configs.yml
+      - example_configs/riskAssessmentConfig/riskAssessment_example.yml
