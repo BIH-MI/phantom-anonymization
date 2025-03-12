@@ -1,0 +1,8 @@
+Emergency;Urgnet;*
+Urgent;Urgnet;*
+Elective;Non-urgnet;*
+Newborn;Non-urgnet;*
+Trauma Center;Urgnet;*
+Information not available;NA;*
+INVALID;NA;*
+NULL;NA;*

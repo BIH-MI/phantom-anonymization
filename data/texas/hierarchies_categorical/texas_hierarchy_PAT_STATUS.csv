@@ -1,0 +1,24 @@
+Discharged to home or self-care (routine discharge);Discharge;*
+Discharged to other short term general hospital;Transfer;*
+Discharged to skilled nursing facility;Transfer;*
+Discharged to intermediate care facility;Transfer;*
+Discharged/transferred to a Designated Cancer Center or Children's Hospital (effective 10-1-2007);Transfer;*
+Discharged to care of home health service;Transfer;*
+Left against medical advice;Other;*
+Discharged to care of Home IV provider;Transfer;*
+Admitted as inpatient to this hospital;Admitted;*
+Expired;Deceased;*
+Still patient;Admitted;*
+Expired at home;Deceased;*
+Expired in a medical facility;Deceased;*
+Discharged/transferred to federal health care facility;Transfer;*
+Discharged to hospice-home;Transfer;*
+Discharged to hospice-medical facility;Transfer;*
+Discharged/transferred within this institution to Medicare-approved swing bed;Transfer;*
+Discharged/transferred to inpatient rehabilitation facility;Transfer;*
+Discharged/transferred to Medicare-certified long term care hospital;Transfer;*
+Discharged/transferred to Medicaid-certified nursing facility;Transfer;*
+Discharged/transferred to psychiatric hospital or psychiatric distinct part of a hospital;Transfer;*
+Discharged/transferred to Critical Access Hospital (CAH);Transfer;*
+INVALID;Other;*
+NULL;Other;*
