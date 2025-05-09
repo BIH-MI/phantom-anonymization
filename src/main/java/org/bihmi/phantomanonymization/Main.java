@@ -37,6 +37,7 @@ import org.bihmi.phantomanonymization.config.SeriesConfig;
 import org.bihmi.phantomanonymization.config.StatisticsConfig;
 import org.bihmi.phantomanonymization.phantom.PhantomAnonymization;
 import org.bihmi.phantomanonymization.target.TargetSelection;
+import org.bihmi.phantomanonymization.utils.HierarchyUtils; // New import
 import org.deidentifier.arx.Data;
 
 import lombok.extern.slf4j.Slf4j;
@@ -46,7 +47,7 @@ import lombok.extern.slf4j.Slf4j;
  */
 @Slf4j
 public class Main {
-    
+
     /** Mode*/
     private static final Option MODE_RISK_ASSESSMENT = Option.builder().longOpt("riskAssessment")
             .desc("Risk assessment mode. If chosen, the following options must be present as well: riskAssessmentConfig, dataConfig, anonymizationConfig, name")
@@ -65,7 +66,14 @@ public class Main {
             .hasArg(false)
             .required(false)
             .build();
-    
+    /** Mode */
+    private static final Option MODE_GENERATE_MEDIAN_HIERARCHY  = Option.builder().longOpt("generateMedianHierarchy")
+            .desc("Transforms a hierarchy for a numerical attribute, replacing intervals with means based on the dataset. " +
+                    "Requires: dataConfig, attributeName, outputHierarchyFile")
+            .hasArg(false)
+            .required(false)
+            .build();
+
     /** Parameter */
     private static final Option PARAMETER_RISK_ASSESSMENT_CONFIG = Option.builder().longOpt("riskAssessmentConfig")
             .desc("Path to risk assessment configuration")
@@ -96,7 +104,20 @@ public class Main {
             .hasArg(true)
             .required(true)
             .build();
-    
+    /** Parameter */
+    private static final Option PARAMETER_ATTRIBUTE_NAME = Option.builder().longOpt("attributeName")
+            .desc("Name of the attribute for mean hierarchy generation")
+            .hasArg(true)
+            .required(false) // Will be required if MODE_GENERATE_MEAN_HIERARCHY is chosen
+            .build();
+    /** Parameter */
+    private static final Option PARAMETER_OUTPUT_HIERARCHY_FILE = Option.builder().longOpt("outputHierarchyFile")
+            .desc("Path to save the generated mean CSV hierarchy file")
+            .hasArg(true)
+            .required(false) // Will be required if MODE_GENERATE_MEAN_HIERARCHY is chosen
+            .build();
+
+
     /**
      * Calls Main chosen by MainOption and passes all other parameters to that Main.
      * 
@@ -105,13 +126,14 @@ public class Main {
      * @throws ParseException
      * @throws InterruptedException
      */
-    public static void main(String[] args) throws IOException, ParseException, InterruptedException, URISyntaxException {
+    public static void main(String[] args) throws IOException, ParseException, InterruptedException, URISyntaxException, org.apache.commons.cli.ParseException {
 
         // Prepare options
         Options options = new Options();
         options.addOption(MODE_RISK_ASSESSMENT);
         options.addOption(MODE_RISK_ASSESSMENT_SERIES);
         options.addOption(MODE_TARGET_SELECTION);
+        options.addOption(MODE_GENERATE_MEDIAN_HIERARCHY);
 
         // Check args
         if (args == null || args.length == 0) {
@@ -233,14 +255,51 @@ public class Main {
             fileStream.flush();
             fileStream.close();
             log.info("Target selection finished");
-            
+
+        } else if (cmd.hasOption(MODE_GENERATE_MEDIAN_HIERARCHY)) {
+            options = new Options();
+            options.addOption(MODE_GENERATE_MEDIAN_HIERARCHY);
+            makeRequired(options, PARAMETER_DATA_CONFIG);
+            makeRequired(options, PARAMETER_ATTRIBUTE_NAME);
+            makeRequired(options, PARAMETER_OUTPUT_HIERARCHY_FILE);
+
+            try {
+                cmd = parser.parse(options, args, false);
+            } catch (Exception e) {
+                help(options, "Error parsing arguments for generateMeanHierarchy: " + e.getMessage());
+                return;
+            }
+
+            String dataConfigPath = cmd.getOptionValue(PARAMETER_DATA_CONFIG.getLongOpt());
+            String attributeName = cmd.getOptionValue(PARAMETER_ATTRIBUTE_NAME.getLongOpt());
+            String outputHierarchyPath = cmd.getOptionValue(PARAMETER_OUTPUT_HIERARCHY_FILE.getLongOpt());
+
+            log.info("Starting mean hierarchy generation...");
+            log.info("Data Config: " + dataConfigPath);
+            log.info("Attribute Name: " + attributeName);
+            log.info("Output Hierarchy: " + outputHierarchyPath);
+
+            try {
+                ConfigReader configReader = new ConfigReader();
+                DataConfig dataConfig = configReader.readDataConfig(dataConfigPath);
+                HierarchyUtils.generateMedianHierarchy(dataConfig, attributeName, outputHierarchyPath);
+                log.info("Median hierarchy generation finished successfully.");
+            } catch (Exception e) {
+                log.error("Error during mean hierarchy generation: ", e);
+            }
+
         } else {
-            
-            // No valid option
-            help(options, "No known option provided");
-            return;
+            help(options, "No known primary mode option provided (--riskAssessment, --riskAssessmentSeries, --targetSelection, --generateMeanHierarchy)");
         }
     }
+
+    private static void makeRequired(Options options, Option option) {
+        // Clone the option to make it required for this specific context
+        Option requiredOption = (Option) option.clone();
+        requiredOption.setRequired(true);
+        options.addOption(requiredOption);
+    }
+
 
     /**
      * Returns the number of assessments to run in this series
@@ -266,19 +325,18 @@ public class Main {
         HelpFormatter formatter = new HelpFormatter();
         formatter.printHelp("java -jar [file].jar", message, options, "");
     }
-    
+
     /**
      * Run a certain risk assessment
      * @param riskAssessmentConfigPath
      * @param dataConfigPath
      * @param anonymizationConfigPath
      * @param name
-     * @param threads
      * @throws IOException
      * @throws ParseException
      * @throws InterruptedException
      */
-    private static void runRiskAssessment(String riskAssessmentConfigPath, String dataConfigPath, String anonymizationConfigPath, String name) throws IOException, ParseException, InterruptedException {
+    private static void runRiskAssessment(String riskAssessmentConfigPath, String dataConfigPath, String anonymizationConfigPath, String name) throws IOException, java.text.ParseException, InterruptedException {
         ConfigReader configReader = new ConfigReader();
         AnonymizationConfig anonymizationConfig = configReader.readAnonymizationConfig(anonymizationConfigPath);
         RiskAssessmentConfig riskAssessmentConfig = configReader.readRiskAssessmentConfig(riskAssessmentConfigPath);
@@ -296,8 +354,5 @@ public class Main {
         // Run
         PhantomAnonymization assessment = new PhantomAnonymization(riskAssessmentConfig, dataConfig, anonymizationConfig, statisticsConfig, name);
         assessment.runRiskAssessment();
-        
     }
 }
-
-

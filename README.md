@@ -33,16 +33,18 @@ Navigate to the folder and run following commands:
 
 ```bash
 java -jar [file].jar
-    --riskAssessment         Risk assessment mode. If chosen, the
-                             following options must be present as well:
-                             riskAssessmentConfig, dataConfig,
-                             anonymizationConfig, name
-    --riskAssessmentSeries   Risk assessment series mode: If chosen, the
-                             following options must be present as well:
-                             seriesConfig
-    --targetSelection        Target selection mode: If chosen, the
-                             following options must be present as well:
-                             dataConfig
+    --riskAssessment         	Risk assessment mode. If chosen, the
+								following options must be present as well:
+								riskAssessmentConfig, dataConfig,
+								anonymizationConfig, name
+    --riskAssessmentSeries   	Risk assessment series mode: If chosen, the
+								following options must be present as well:
+								seriesConfig
+    --targetSelection        	Target selection mode: If chosen, the
+								following options must be present as well:
+								dataConfig
+    --generateMedianHierarchy   Transforms a hierarchy for a numerical attribute, replacing intervals with means based on the dataset. 
+								Requires: dataConfig, attributeName, outputHierarchyFile
 ```
 Examples of how to use the cli are provded as bash scripts.
 
