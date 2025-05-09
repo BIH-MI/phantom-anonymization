@@ -43,7 +43,7 @@ java -jar [file].jar
     --targetSelection        	Target selection mode: If chosen, the
 								following options must be present as well:
 								dataConfig
-    --generateMedianHierarchy   Transforms a hierarchy for a numerical attribute, replacing intervals with means based on the dataset. 
+    --generateMedianHierarchy   Transforms a hierarchy for a numerical attribute by replacing each node's label with the median of the corresponding data subset. 
 								Requires: dataConfig, attributeName, outputHierarchyFile
 ```
 Examples of how to use the cli are provded as bash scripts.

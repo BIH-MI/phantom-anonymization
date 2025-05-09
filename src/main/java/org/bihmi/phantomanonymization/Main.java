@@ -37,7 +37,7 @@ import org.bihmi.phantomanonymization.config.SeriesConfig;
 import org.bihmi.phantomanonymization.config.StatisticsConfig;
 import org.bihmi.phantomanonymization.phantom.PhantomAnonymization;
 import org.bihmi.phantomanonymization.target.TargetSelection;
-import org.bihmi.phantomanonymization.utils.HierarchyUtils; // New import
+import org.bihmi.phantomanonymization.utils.HierarchyUtils;
 import org.deidentifier.arx.Data;
 
 import lombok.extern.slf4j.Slf4j;
@@ -68,7 +68,7 @@ public class Main {
             .build();
     /** Mode */
     private static final Option MODE_GENERATE_MEDIAN_HIERARCHY  = Option.builder().longOpt("generateMedianHierarchy")
-            .desc("Transforms a hierarchy for a numerical attribute, replacing intervals with means based on the dataset. " +
+            .desc("Transforms a hierarchy for a numerical attribute by replacing each node's label with the median of the corresponding data subset. " +
                     "Requires: dataConfig, attributeName, outputHierarchyFile")
             .hasArg(false)
             .required(false)
